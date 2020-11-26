@@ -16,6 +16,7 @@ class Post(models.Model):
     date_created = models.DateTimeField(auto_now=True)
 
     image = models.ImageField()
+    blog = models.ForeignKey(Blog,on_delete=models.SET_NULL,null=True)
 
     def __str__(self):
         return self.title

@@ -1,2 +1,17 @@
-<h1>  Good job! <h1/>
+{% for post in posts %}
+
+{{ post.title }}
+<br>
+{{ post.text }}
+<br>
+{{ post.date_created }}
+<br>
+<img src="{{post.image.url}}">
+<br>
+{{post.blog}}
+<h1>{{post.blog}}</h1>
+
+
+
+{% endfor %}
 
