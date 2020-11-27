@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render
+
+from .forms import BlogForm
 from .models import *
 
 # Create your views here.
@@ -24,3 +26,13 @@ def blogDetailView(request,blog_id):
     posts = blog.post_set.all()
     context = {'blog':blog,'posts':posts}
     return render(request,'first_app/blog-detail.html',context)
+
+def blogCreate(request):
+    form = BlogForm()
+    if request.method == 'POST':
+        form = BlogForm(request.POST)
+        if form.is_valid():
+            form = BlogForm(request.POST)
+            form.save()
+    context = {'form':form}
+    return render(request,'first_app/blog-create.html',context)

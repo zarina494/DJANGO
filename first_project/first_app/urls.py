@@ -11,5 +11,5 @@ urlpatterns = [
     path('blog/',bloglist),
     path('post/',postlist),
     path('blog/<int:blog_id>/',blogDetailView),
-
+    path('blog-create/',blogCreate),
 ]
